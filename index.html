@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modern Maze Game</title>
+  <!-- Include Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Add the pixelated font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Game Header -->
+  <header>
+    <h1>MAZE RUNNER</h1>
+  </header>
+
+  <!-- Controls -->
+  <div id="controls">
+    <button id="start-pause-button">START</button>
+    <button id="restart-button">RESTART</button>
+  </div>
+
+  <!-- Settings -->
+  <div id="settings">
+    <label for="rows-input">Rows:</label>
+    <input type="number" id="rows-input" value="20" min="5" max="100">
+    <label for="cols-input">Columns:</label>
+    <input type="number" id="cols-input" value="20" min="5" max="100">
+    <button id="generate-button">GENERATE MAZE</button>
+  </div>
+
+  <div id="upload">
+    <!-- Add file input for uploading maze JSON -->
+    <label for="maze-file-input">Upload Maze JSON:</label>
+    <input type="file" id="maze-file-input" accept=".json">
+  </div>
+
+  <!-- Maze Container -->
+  <main>
+    <div id="maze-container"></div>
+    <!-- Add the Congratulations container here -->
+    <div id="congrats-container">
+      <img id="congrats-gif" src="images/SPARKLES.gif" alt="Sparkles" />
+      <h2>CONGRATULATIONS!</h2>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 MAZE GAME. ALL RIGHTS RESERVED.</p>
+  </footer>
+
+  <!-- JavaScript Files -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

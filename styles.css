@@ -1,0 +1,323 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', sans-serif;
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background-color: #282828;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Press Start 2P', sans-serif;
+  margin: 0;
+  font-size: 2em;
+  font-weight: 700;
+  color: #1d6736;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 20px;
+}
+
+#maze-container {
+  position: relative;
+  display: grid;
+  gap: 0;
+  margin: 0 auto;
+  width: fit-content;
+  background-color: #2e2e2e;
+  border: 2px solid #444;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Maze Cells */
+.cell {
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #a47447;
+  right: 6px;
+}
+
+/* Wall Elements */
+.wall {
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* Ensures the image fills the wall element */
+ background-color: #333;
+}
+
+/* North Wall */
+.wall-north {
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 12px; /* Adjusted for visibility */
+  background-image: url('images/fence-horizontal.png');
+}
+
+/* South Wall */
+.wall-south {
+  bottom: -12px;
+  left: 0;
+  width: 32px;
+  height: 12px;
+  background-image: url('images/fence-horizontal.png');
+}
+
+/* East Wall */
+.wall-east {
+  top: 0;
+  right: -10px;
+  width: 10px; /* Adjusted for visibility */
+  height: 32px;
+  background-image: url('images/fence-vertical.png');
+}
+
+/* West Wall */
+.wall-west {
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 32px;
+  background-image: url('images/fence-vertical.png');
+}
+
+/* Corner Cases */
+.cell.top-left-corner .wall-north,
+.cell.top-left-corner .wall-west {
+  background-image: url('images/fence-top-left-edge.png');
+}
+
+.cell.top-right-corner .wall-north,
+.cell.top-right-corner .wall-east {
+  background-image: url('images/fence-top-right-edge.png');
+}
+
+.cell.bottom-left-corner .wall-south,
+.cell.bottom-left-corner .wall-west {
+  background-image: url('images/fence-bottom-left-edge.png');
+}
+
+.cell.bottom-right-corner .wall-south,
+.cell.bottom-right-corner .wall-east {
+  background-image: url('images/fence-bottom-right-edge.png');
+}
+
+/* House (Goal Cell) */
+.house {
+    background-image: url('images/house.png');
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    width: 60px;
+    height: 60px; 
+    position: absolute; 
+    z-index: 2; 
+}
+
+/* Character */
+.character {
+  position: absolute;
+  width: 28px;
+  height: 32px;
+  pointer-events: none;
+  transition: top 0.2s linear, left 0.2s linear;
+  z-index: 3; 
+}
+
+/* Controls */
+#controls {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#controls button {
+  background-color: #1d6736;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  margin: 0 10px;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#controls button:hover {
+  background-color: #123f21;
+}
+
+#controls button:active {
+  background-color: #123f21;
+}
+
+/* Congratulations Container */
+#congrats-container {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  
+  /* Add a semi-transparent green background */
+  background-color: rgba(29, 103, 54, 0.8); /* Adjust the RGBA values as needed */
+  
+  /* Additional styling */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Show class to trigger opacity transition */
+#congrats-container.show {
+  opacity: 1;
+}
+
+/* Style for the Congratulations message */
+#congrats-container h2 {
+  font-family: 'Press Start 2P', sans-serif;
+  color: #fff; /* Change text color to white for better contrast */
+  margin-top: 20px;
+  font-size: 1.5em;
+  text-shadow: 2px 2px #000;
+}
+
+/* Style for the GIF */
+#congrats-gif {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+#upload {
+  justify-content: center;
+  display: flex;
+}
+
+/* Footer */
+footer {
+  background-color: #282828;
+  text-align: center;
+  padding: 10px;
+}
+
+footer p {
+  font-family: 'Press Start 2P', sans-serif;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* Settings */
+#settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+#settings label {
+  margin: 0 10px;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 0.8em;
+}
+
+#settings input {
+  width: 60px;
+  padding: 5px;
+  margin-right: 10px;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 0.8em;
+}
+
+#settings button {
+  background-color: #1d6736;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 0.8em;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#settings button:hover {
+  background-color: #123f21;
+}
+
+/* Start Marker */
+.start-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 255, 0, 0.5); /* Semi-transparent green */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}
+
+
+/* Route Cell Highlight */
+.route-cell {
+  background-color: rgba(255, 255, 0, 0.5); /* Semi-transparent yellow */
+  transition: background-color 0.3s;
+}
+
+.backtrack-cell {
+  background-color: rgba(255, 0, 0, 0.5); /* Semi-transparent red */
+  transition: background-color 0.3s;
+}
+
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  #controls button {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+}
+
+/* Animation */
+@keyframes move {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(var(--dx), var(--dy));
+  }
+}
+
