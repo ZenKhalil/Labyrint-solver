@@ -85,6 +85,9 @@ Open the index.html file in your preferred web browser.
 
 ## Maze Generation
 - **Algorithm Used:** Prim's Algorithm
+- *** https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Prim's_algorithm ***
+- *** https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/ ***
+
 
 ### Description
 Prim's Algorithm generates a perfect maze by starting with a grid full of walls, selecting a random starting cell, and iteratively adding cells to the maze by removing walls between adjacent cells. This approach ensures a maze with multiple branches and interconnected pathways.
