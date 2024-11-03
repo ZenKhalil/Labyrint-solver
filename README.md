@@ -6,6 +6,8 @@
 
 The **Maze Solver Application** is an interactive web-based tool that generates mazes using **Prim's Algorithm**, visualizes them, and animates a character navigating from the start to the goal. Users can create custom mazes, upload predefined maze configurations, and watch the solving process with dynamic route highlighting and backtracking from dead ends.
 
+# DEMO (https://zenkhalil.github.io/Labyrint-solver/)
+
 ## Features
 
 - **Maze Generation:**
